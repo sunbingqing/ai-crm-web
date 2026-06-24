@@ -1,0 +1,4 @@
+interface:
+  display_name: "Data Query Routing"
+  short_description: "Use stable routing and React Query patterns"
+  default_prompt: "Use $data-query-routing to add a route, loader, query, or mutation."

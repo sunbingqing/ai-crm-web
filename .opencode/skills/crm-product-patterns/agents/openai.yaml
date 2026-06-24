@@ -1,0 +1,4 @@
+interface:
+  display_name: "CRM Product Patterns"
+  short_description: "Apply AI sales assistant CRM domain patterns"
+  default_prompt: "Use $crm-product-patterns to model a sales workflow or CRM feature."

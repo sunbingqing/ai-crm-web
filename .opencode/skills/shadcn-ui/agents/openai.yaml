@@ -1,0 +1,4 @@
+interface:
+  display_name: "Shadcn UI"
+  short_description: "Build consistent shadcn and Tailwind interfaces"
+  default_prompt: "Use $shadcn-ui to add or update a CRM interface component."

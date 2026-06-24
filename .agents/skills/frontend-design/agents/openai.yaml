@@ -1,0 +1,4 @@
+interface:
+  display_name: "Frontend Design"
+  short_description: "Design polished CRM product screens"
+  default_prompt: "Use $frontend-design to design a polished CRM product screen."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Frontend QA"
+  short_description: "Verify UI quality before finishing frontend work"
+  default_prompt: "Use $frontend-qa to verify a frontend change before delivery."
