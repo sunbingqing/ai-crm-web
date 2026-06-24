@@ -144,8 +144,11 @@ export default function CustomerListPage() {
                 ))
               ) : customerQuery.isError ? (
                 <TableRow>
-                  <TableCell colSpan={8} className="px-6 py-10 text-center text-destructive">
-                    客户列表加载失败，请稍后重试
+                  <TableCell colSpan={8} className="px-6 py-10 text-center">
+                    <p className="mb-3 text-destructive">客户列表加载失败，请稍后重试</p>
+                    <Button variant="outline" size="sm" onClick={() => customerQuery.refetch()}>
+                      重试
+                    </Button>
                   </TableCell>
                 </TableRow>
               ) : customers.length === 0 ? (

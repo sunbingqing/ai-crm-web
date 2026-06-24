@@ -11,6 +11,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { DataTableSection } from '@/components/data/DataTableSection'
+import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
 import { SearchableSelect } from '@/components/filters/SearchableSelect'
 import {
@@ -258,8 +259,11 @@ export default function SessionReviewPage() {
                 ))
               ) : sessionQuery.isError ? (
                 <TableRow>
-                  <TableCell colSpan={10} className="px-6 py-10 text-center text-destructive">
-                    会话列表加载失败，请稍后重试
+                  <TableCell colSpan={10} className="px-6 py-10 text-center">
+                    <p className="mb-3 text-destructive">会话列表加载失败，请稍后重试</p>
+                    <Button variant="outline" size="sm" onClick={() => sessionQuery.refetch()}>
+                      重试
+                    </Button>
                   </TableCell>
                 </TableRow>
               ) : sessions.length === 0 ? (

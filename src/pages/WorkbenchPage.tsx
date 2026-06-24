@@ -10,6 +10,7 @@
 import { useMemo, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
 import { cn } from '@/lib/utils'
 import {
@@ -210,8 +211,11 @@ export default function WorkbenchPage() {
                 ))
               ) : riskSessionsQuery.isError ? (
                 <TableRow>
-                  <TableCell colSpan={10} className="px-6 py-10 text-center text-destructive">
-                    风险会话加载失败，请稍后重试
+                  <TableCell colSpan={10} className="px-6 py-10 text-center">
+                    <p className="mb-3 text-destructive">风险会话加载失败，请稍后重试</p>
+                    <Button variant="outline" size="sm" onClick={() => riskSessionsQuery.refetch()}>
+                      重试
+                    </Button>
                   </TableCell>
                 </TableRow>
               ) : riskSessions.length === 0 ? (
@@ -265,8 +269,11 @@ export default function WorkbenchPage() {
                 ))
               ) : attentionPersonsQuery.isError ? (
                 <TableRow>
-                  <TableCell colSpan={5} className="px-6 py-10 text-center text-destructive">
-                    需关注成员加载失败，请稍后重试
+                  <TableCell colSpan={5} className="px-6 py-10 text-center">
+                    <p className="mb-3 text-destructive">需关注成员加载失败，请稍后重试</p>
+                    <Button variant="outline" size="sm" onClick={() => attentionPersonsQuery.refetch()}>
+                      重试
+                    </Button>
                   </TableCell>
                 </TableRow>
               ) : attentionPersons.length === 0 ? (

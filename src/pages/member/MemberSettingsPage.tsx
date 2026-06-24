@@ -128,8 +128,11 @@ export default function MemberSettingsPage() {
                 ))
               ) : memberQuery.isError ? (
                 <TableRow>
-                  <TableCell colSpan={5} className="px-6 py-10 text-center text-destructive">
-                    成员列表加载失败，请稍后重试
+                  <TableCell colSpan={5} className="px-6 py-10 text-center">
+                    <p className="mb-3 text-destructive">成员列表加载失败，请稍后重试</p>
+                    <Button variant="outline" size="sm" onClick={() => memberQuery.refetch()}>
+                      重试
+                    </Button>
                   </TableCell>
                 </TableRow>
               ) : members.length === 0 ? (
@@ -145,7 +148,7 @@ export default function MemberSettingsPage() {
                     <TableCell>{member.phone}</TableCell>
                     <TableCell>
                       {member.status === 1 ? (
-                        <span className="text-green-600">在职</span>
+                        <span className="text-success-foreground">在职</span>
                       ) : (
                         <span className="text-muted-foreground">离职</span>
                       )}

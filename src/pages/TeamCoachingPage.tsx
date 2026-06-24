@@ -455,8 +455,11 @@ export default function TeamCoachingPage() {
                   ))
                 ) : personsQuery.isError ? (
                   <TableRow>
-                    <TableCell colSpan={6} className="px-6 py-10 text-center text-destructive">
-                      成员列表加载失败，请稍后重试
+                    <TableCell colSpan={6} className="px-6 py-10 text-center">
+                      <p className="mb-3 text-destructive">成员列表加载失败，请稍后重试</p>
+                      <Button variant="outline" size="sm" onClick={() => personsQuery.refetch()}>
+                        重试
+                      </Button>
                     </TableCell>
                   </TableRow>
                 ) : filteredPersons.length === 0 ? (
@@ -512,8 +515,11 @@ export default function TeamCoachingPage() {
                   ))
                 ) : attentionQuery.isError ? (
                   <TableRow>
-                    <TableCell colSpan={6} className="px-6 py-10 text-center text-destructive">
-                      成员列表加载失败，请稍后重试
+                    <TableCell colSpan={6} className="px-6 py-10 text-center">
+                      <p className="mb-3 text-destructive">成员列表加载失败，请稍后重试</p>
+                      <Button variant="outline" size="sm" onClick={() => attentionQuery.refetch()}>
+                        重试
+                      </Button>
                     </TableCell>
                   </TableRow>
                 ) : filteredPersons.length === 0 ? (
@@ -619,14 +625,14 @@ function TrendBadge({ offset, formatOffset }: { offset: number; formatOffset?: (
   const displayOffset = formatOffset ? formatOffset(offset) : offset
   if (offset > 0) {
     return (
-      <Badge variant="default" className="bg-emerald-100 text-emerald-700 hover:bg-emerald-100 dark:bg-emerald-900/30 dark:text-emerald-400">
+      <Badge variant="default" className="bg-success/20 text-success-foreground hover:bg-success/20">
         较上一周期 +{displayOffset}
       </Badge>
     )
   }
   if (offset < 0) {
     return (
-      <Badge variant="default" className="bg-red-100 text-red-700 hover:bg-red-100 dark:bg-red-900/30 dark:text-red-400">
+      <Badge variant="default" className="bg-destructive/15 text-destructive hover:bg-destructive/15">
         较上一周期 {displayOffset}
       </Badge>
     )

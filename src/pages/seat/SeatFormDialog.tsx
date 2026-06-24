@@ -199,6 +199,7 @@ export function SeatFormDialog({ open, seat, onOpenChange }: SeatFormDialogProps
                   variant="ghost"
                   size="icon"
                   className="absolute right-0 top-0 h-full px-2 hover:bg-transparent"
+                  aria-label={showPassword ? '隐藏密码' : '显示密码'}
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}

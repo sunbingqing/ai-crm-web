@@ -375,6 +375,7 @@ export default function AssistantPage() {
             />
             <Button
               size="icon"
+              aria-label="发送消息"
               onClick={() => {
                 void handleSend(inputValue)
               }}

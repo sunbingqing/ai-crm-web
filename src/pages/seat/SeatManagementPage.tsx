@@ -238,8 +238,11 @@ export default function SeatManagementPage() {
                 ))
               ) : seatQuery.isError ? (
                 <TableRow>
-                  <TableCell colSpan={4} className="px-6 py-10 text-center text-destructive">
-                    坐席列表加载失败，请稍后重试
+                  <TableCell colSpan={4} className="px-6 py-10 text-center">
+                    <p className="mb-3 text-destructive">坐席列表加载失败，请稍后重试</p>
+                    <Button variant="outline" size="sm" onClick={() => seatQuery.refetch()}>
+                      重试
+                    </Button>
                   </TableCell>
                 </TableRow>
               ) : seats.length === 0 ? (
@@ -259,6 +262,7 @@ export default function SeatManagementPage() {
                           variant="ghost"
                           size="icon"
                           className="h-6 w-6"
+                          aria-label={visiblePasswords.has(seat.id) ? '隐藏密码' : '显示密码'}
                           onClick={() => togglePasswordVisibility(seat.id)}
                         >
                           {visiblePasswords.has(seat.id) ? (
