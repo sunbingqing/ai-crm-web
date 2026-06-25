@@ -43,8 +43,9 @@ export default function RuleSettingsPage() {
   const Content = TAB_CONTENT[activeTab]
 
   return (
-    <div className="flex h-full">
-      <nav className="flex w-40 shrink-0 flex-col border-r bg-muted/30 py-4">
+    <div className="page-shell h-full">
+      <div className="data-shell flex min-h-[calc(100svh-7rem)] overflow-hidden p-0">
+      <nav className="flex w-44 shrink-0 flex-col border-r bg-muted/35 py-4">
         <div className="px-3 pb-2 text-xs font-medium text-muted-foreground">
           规则分类
         </div>
@@ -64,8 +65,9 @@ export default function RuleSettingsPage() {
         ))}
       </nav>
 
-      <div className="flex min-w-0 flex-1 flex-col overflow-y-auto p-6">
+      <div className="flex min-w-0 flex-1 flex-col overflow-y-auto p-5 sm:p-6">
         <Content />
+      </div>
       </div>
     </div>
   )

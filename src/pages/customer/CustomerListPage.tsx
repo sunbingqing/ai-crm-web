@@ -76,8 +76,8 @@ export default function CustomerListPage() {
   ]
 
   return (
-    <div className="space-y-6 p-6">
-      <div className="-mx-6 border-b bg-background px-6 py-4">
+    <div className="page-shell">
+      <div className="toolbar-band">
         <div className="flex items-center gap-3">
           <div className="relative max-w-sm flex-1">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />

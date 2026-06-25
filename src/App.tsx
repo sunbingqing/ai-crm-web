@@ -5,6 +5,7 @@ import { Toaster } from '@/components/ui/sonner'
 import { AuthProvider } from '@/contexts/AuthContext'
 import { RequireAuth, RequireAdmin } from '@/components/auth/RequireAuth'
 import { AppLayout } from '@/components/layout/AppLayout'
+import RevenueCockpitRoute from '@/routes/RevenueCockpitRoute'
 import LoginPage from '@/pages/LoginPage'
 import AssistantPage from '@/pages/AssistantPage'
 import WorkbenchPage from '@/pages/WorkbenchPage'
@@ -28,7 +29,8 @@ function App() {
               <Route element={<RequireAuth />}>
                 <Route element={<AppLayout />}>
                   <Route element={<RequireAdmin />}>
-                    <Route path="/" element={<AssistantPage />} />
+                    <Route path="/" element={<RevenueCockpitRoute />} />
+                    <Route path="/assistant" element={<AssistantPage />} />
                     <Route path="/workbench" element={<WorkbenchPage />} />
                     <Route path="/team-coaching" element={<TeamCoachingPage />} />
                     <Route path="/rule-settings" element={<RuleSettingsPage />} />

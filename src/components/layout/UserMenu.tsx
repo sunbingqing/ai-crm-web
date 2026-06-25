@@ -93,19 +93,19 @@ export function UserMenu() {
         onMouseEnter={handleEnter}
         onMouseLeave={handleLeave}
       >
-        <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
+        <div className="hidden items-center gap-1.5 text-sm text-muted-foreground md:flex">
           <Building2 className="size-3.5 shrink-0" />
           <span>{orgName || '默认机构'}</span>
         </div>
-        <div className="mx-1 h-4 w-px bg-border" />
-        <div className="flex cursor-pointer items-center gap-1.5 rounded-md px-1.5 py-1 transition-colors hover:bg-muted">
-          <div className="flex size-6 shrink-0 items-center justify-center rounded-full bg-primary text-[10px] font-medium text-primary-foreground">
+        <div className="mx-1 hidden h-4 w-px bg-border md:block" />
+        <div className="flex cursor-pointer items-center gap-1.5 rounded-lg border border-border/80 bg-card px-1.5 py-1 shadow-sm transition-colors hover:bg-muted">
+          <div className="flex size-6 shrink-0 items-center justify-center rounded-md bg-primary text-[10px] font-medium text-primary-foreground">
             {avatarChar}
           </div>
-          <span className="max-w-[80px] truncate text-sm font-medium">
+          <span className="hidden max-w-[92px] truncate text-sm font-medium sm:block">
             {username || '管理员'}
           </span>
-          <span className="inline-flex h-5 shrink-0 items-center rounded-4xl border border-primary/20 bg-primary/10 px-1.5 text-[10px] font-medium text-primary">
+          <span className="hidden h-5 shrink-0 items-center rounded-md border bg-muted px-1.5 text-[10px] font-medium text-muted-foreground xl:inline-flex">
             {roleLabel}
           </span>
           <ChevronDown
@@ -116,7 +116,7 @@ export function UserMenu() {
           />
         </div>
         {open && (
-          <div className="absolute right-0 top-full z-50 mt-1 min-w-[140px] overflow-hidden rounded-lg border bg-popover p-1 shadow-md">
+          <div className="absolute right-0 top-full z-50 mt-2 min-w-[168px] overflow-hidden rounded-lg border bg-popover p-1.5 shadow-lg">
             <button
               type="button"
               className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm text-foreground transition-colors hover:bg-muted"

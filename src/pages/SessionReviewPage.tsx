@@ -153,8 +153,8 @@ export default function SessionReviewPage() {
   const showTableLoading = sessionQuery.isLoading && !sessionQuery.data
 
   return (
-    <div className="space-y-6 p-6">
-      <div className="-mx-6 border-b bg-background px-6 py-4">
+    <div className="page-shell">
+      <div className="toolbar-band">
         {isAdmin && (
           <div className="max-w-sm">
             <SearchableSelect
@@ -185,9 +185,9 @@ export default function SessionReviewPage() {
         )}
       </div>
 
-      <div className="rounded-lg border p-6">
+      <div className="data-shell">
         <div className="mb-4">
-          <h2 className="text-2xl font-bold">概览</h2>
+          <h2 className="text-lg font-semibold">概览</h2>
           <p className="mt-1 text-sm text-muted-foreground">点击卡片切换列表筛选类型</p>
         </div>
 
@@ -197,8 +197,8 @@ export default function SessionReviewPage() {
               key={card.key}
               type="button"
               className={cn(
-                'rounded-lg border p-4 text-left transition-colors hover:bg-muted/30',
-                card.active && 'border-primary/40 bg-primary/5',
+                'metric-card text-left',
+                card.active && 'metric-card-active',
               )}
               onClick={() => handleSwitchSearchType(card.key)}
             >

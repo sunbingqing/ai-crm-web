@@ -207,8 +207,8 @@ export default function AssistantPage() {
   }
 
   return (
-    <div className="flex h-[calc(100vh-3.25rem)]">
-      <aside className="flex w-64 shrink-0 flex-col border-r bg-background">
+    <div className="flex h-[calc(100vh-3.5rem)] gap-4 p-4">
+      <aside className="panel flex w-72 shrink-0 flex-col overflow-hidden">
         <div className="border-b p-3">
           <Button className="w-full" onClick={createNewConversation}>
             <Plus className="mr-2 h-4 w-4" />
@@ -256,7 +256,7 @@ export default function AssistantPage() {
         </div>
       </aside>
 
-      <div className="flex min-w-0 flex-1 flex-col">
+      <div className="panel flex min-w-0 flex-1 flex-col overflow-hidden">
         {!activeConversation ? (
           <div className="flex flex-1 flex-col items-center justify-start px-6 pt-16">
             <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10">
@@ -356,7 +356,7 @@ export default function AssistantPage() {
           </div>
         )}
 
-        <div className="border-t p-4">
+        <div className="border-t bg-muted/35 p-4">
           <div className="mx-auto flex max-w-4xl items-end gap-2">
             <Textarea
               ref={textareaRef}

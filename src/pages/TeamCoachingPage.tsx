@@ -292,8 +292,8 @@ export default function TeamCoachingPage() {
   }
 
   return (
-    <div className="space-y-6 bg-muted/20 p-6">
-      <section className="-mx-6 -mt-6 border-b bg-background px-6 py-4">
+    <div className="page-shell">
+      <section className="toolbar-band">
         <div className="flex flex-wrap items-center gap-3">
           <DateRangeSelector value={range} onChange={setRange} />
         </div>
@@ -305,17 +305,17 @@ export default function TeamCoachingPage() {
         </div>
       )}
 
-      <section className="rounded-lg border p-6">
+      <section className="data-shell">
         <div className="mb-4">
-          <h2 className="text-2xl font-bold">概览</h2>
+          <h2 className="text-lg font-semibold">概览</h2>
           <p className="mt-1 text-sm text-muted-foreground">点击卡片切换成员列表筛选类型</p>
         </div>
         <div className="grid gap-4 lg:grid-cols-2">
           <button
             type="button"
             className={cn(
-              'rounded-lg border p-4 text-left transition-colors hover:bg-muted/30',
-              cardType === 'all' && 'border-primary/40 bg-primary/5',
+              'metric-card text-left',
+              cardType === 'all' && 'metric-card-active',
             )}
             onClick={() => handleCardTypeChange('all')}
           >
@@ -334,8 +334,8 @@ export default function TeamCoachingPage() {
           <button
             type="button"
             className={cn(
-              'rounded-lg border p-4 text-left transition-colors hover:bg-muted/30',
-              cardType === 'attention' && 'border-destructive/40 bg-destructive/5',
+              'metric-card text-left',
+              cardType === 'attention' && 'border-destructive/35 bg-destructive/10',
             )}
             onClick={() => handleCardTypeChange('attention')}
           >
@@ -354,8 +354,8 @@ export default function TeamCoachingPage() {
         </div>
       </section>
 
-      <section className="rounded-lg border bg-card p-6">
-        <h2 className="text-2xl font-bold">团队基础数据</h2>
+      <section className="data-shell">
+        <h2 className="text-lg font-semibold">团队基础数据</h2>
         <p className="mt-1 text-sm text-muted-foreground">所选时间范围内的团队整体表现</p>
         <div           className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {STAT_ITEMS.map((item) => {
@@ -367,7 +367,7 @@ export default function TeamCoachingPage() {
             return (
               <div
                 key={item.key}
-                className="rounded-lg border bg-card/50 p-4 shadow-sm"
+                className="metric-card"
               >
                 <p className="text-sm font-medium text-muted-foreground">{item.label}</p>
                 <div className="mt-3 flex items-end gap-1.5">
@@ -482,10 +482,10 @@ export default function TeamCoachingPage() {
           </div>
         </DataTableSection>
       ) : (
-        <section className="rounded-lg border bg-card p-6">
+        <section className="data-shell">
           <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
             <div>
-              <h2 className="text-2xl font-bold">需关注成员</h2>
+              <h2 className="text-lg font-semibold">需关注成员</h2>
               <p className="mt-1 text-sm text-muted-foreground">基于风险会话占比和跟进完成情况识别</p>
             </div>
             <div className="text-sm text-muted-foreground whitespace-nowrap">共 {filteredPersons.length} 位</div>

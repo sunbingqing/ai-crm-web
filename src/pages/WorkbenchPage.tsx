@@ -137,8 +137,8 @@ export default function WorkbenchPage() {
   }
 
   return (
-    <div className="space-y-6 bg-muted/20 p-6">
-      <section className="-mx-6 -mt-6 border-b bg-background px-6 py-4">
+    <div className="page-shell">
+      <section className="toolbar-band">
         <div className="flex flex-wrap items-center gap-3">
           <DateRangeSelector value={range} onChange={setRange} />
         </div>
@@ -169,10 +169,10 @@ export default function WorkbenchPage() {
         />
       </section>
 
-      <section className="rounded-lg border bg-card p-6">
+      <section className="data-shell">
         <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
           <div>
-            <h2 className="text-2xl font-bold">风险会话</h2>
+            <h2 className="text-lg font-semibold">风险会话</h2>
             <p className="mt-1 text-sm text-muted-foreground">展示所选时间内低质量或跟进逾期的会话</p>
           </div>
           <div className="text-sm text-muted-foreground">共 {riskSessions.length} 条</div>
@@ -238,10 +238,10 @@ export default function WorkbenchPage() {
         </div>
       </section>
 
-      <section className="rounded-lg border bg-card p-6">
+      <section className="data-shell">
         <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
           <div>
-            <h2 className="text-2xl font-bold">需关注成员</h2>
+            <h2 className="text-lg font-semibold">需关注成员</h2>
             <p className="mt-1 text-sm text-muted-foreground">基于风险会话占比和跟进完成情况识别</p>
           </div>
           <div className="text-sm text-muted-foreground">共 {attentionPersons.length} 位</div>
@@ -319,9 +319,9 @@ function SummaryCard({
   return (
     <div
       className={cn(
-        'rounded-lg border bg-card p-6 shadow-sm',
-        tone === 'risk' && 'bg-gradient-to-br from-card to-destructive/5',
-        tone === 'attention' && 'bg-gradient-to-br from-card to-primary/5',
+        'metric-card p-5',
+        tone === 'risk' && 'border-destructive/25',
+        tone === 'attention' && 'border-foreground/20',
       )}
     >
       <p className="text-base font-semibold text-muted-foreground">{title}</p>
